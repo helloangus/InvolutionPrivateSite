@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import imp
 from django.contrib import admin
 from django.urls import include, path
+from firstHtml import views as firstviews
 
 urlpatterns = [
     path('msggate/', include('msgapp.urls')),
     path('firstHtml/', include('firstHtml.urls')),  # 表示当访问firstHtml/时，去找本地路由
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('', firstviews.homeproc)
 ]
