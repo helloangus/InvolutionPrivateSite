@@ -23,5 +23,7 @@ urlpatterns = [
     path('firstHtml/', include('firstHtml.urls')),  # 表示当访问firstHtml/时，去找本地路由
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('', firstviews.homeproc)
+    path('', firstviews.homeproc),
+    path('picture/', firstviews.pictureDownload),
+    path('video/', firstviews.videoDownload)
 ]
