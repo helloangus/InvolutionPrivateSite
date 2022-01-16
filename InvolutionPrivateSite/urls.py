@@ -25,5 +25,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', firstviews.homeproc),
     path('picture/', firstviews.pictureDownload),
-    path('video/', firstviews.videoDownload)
 ]
