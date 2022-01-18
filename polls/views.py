@@ -3,6 +3,7 @@ from django.template.loader import get_template
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import F
+from django.utils import timezone
 from polls.models import Question, Choice
 
 
@@ -11,7 +12,7 @@ def index(request):
     template = get_template("index.html")
 
     # 从Question模型中获取按时间倒序排列的前五项记录，
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    latest_question_list = Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     response = HttpResponse(template.render(context, request))
 
@@ -20,7 +21,7 @@ def index(request):
 
 def detail(request, question_id):
     # 在Question中寻找匹配question_id的question，未找到则给出404错误
-    question = get_object_or_404(Question, pk=question_id)
+    question = get_object_or_404(Question.objects.filter(pub_date__lte=timezone.now()), pk=question_id)
 
     # 获取detail.html模板，展示问题内容和选项
     template = get_template('detail.html')

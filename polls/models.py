@@ -13,7 +13,8 @@ class Question(models.Model):
 
     # 判断是否为最近一天上传的数据
     def was_published_recently(self):
-        return self.pub_date >= timezone.now()-datetime.timedelta(days=1)
+        now = timezone.now()
+        return ((self.pub_date <= now) and (self.pub_date >= timezone.now()-datetime.timedelta(days=1)))
 
 # 创建Choice模型，负责选项描述和展示当前得怕票数
 class Choice(models.Model):
