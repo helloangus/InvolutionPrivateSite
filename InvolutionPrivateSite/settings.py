@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls.apps.PollsConfig',
+    'firstHtml.apps.FirsthtmlConfig',
+    'msgapp.apps.MsgappConfig',
 ]
 
 MIDDLEWARE = [
@@ -57,9 +59,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'firstHtml/templates'), 
-            os.path.join(BASE_DIR, 'msgapp/templates')
-            ],
+            BASE_DIR / 'templates',
+        ],
+        # 只要在上面INSTALLED_APPS中注册了的app，且开启了下个选项，都可以直接在其目录下的templates目录下寻找模板
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

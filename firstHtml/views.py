@@ -6,7 +6,7 @@ from django.template.loader import get_template
 
 # 新增返回一个html页面的函数
 def hello(request):
-    return render(request, "test.html")
+    return render(request, 'firstHtml/test.html')
 
 # 首页信息
 def homeproc(request):
@@ -22,7 +22,7 @@ def homeproc(request):
 
     # 使用模板语言替换html文件中的内容
     # 在所有的模板路径下搜索模板
-    template = get_template("homePage.html")
+    template = get_template("firstHtml/homePage.html")
     # 字典类型，与html文件中模板语言定义的变量替换
     context = {"name1":"好康的", "name2":"更好康的", \
         "link1": "https://www.bilibili.com/video/BV1GJ411x7h7?share_source=copy_web", "link2": "./picture"}
@@ -34,7 +34,7 @@ def homeproc(request):
 # 流式响应-文件下载
 def pictureDownload(request):
     cwd = os.path.dirname(os.path.abspath(__file__))
-    response = FileResponse(open(cwd + "/templates/haokangde.jpg", "rb"))
+    response = FileResponse(open(cwd + "/static/images/haokangde.jpg", "rb"))
 
     # MIME标记
     response['Content-Type'] = 'application.octet-stream'   # 指定文件类型

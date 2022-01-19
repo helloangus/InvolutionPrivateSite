@@ -27,5 +27,5 @@ def msgproc(request):
                         datalist.append(d)
                     if cnt >= 10:
                         break
-    return render(request, "MsgSingleWeb.html", {"data": datalist}) # 返回html模板和datalist
+    return render(request, 'msgapp/MsgSingleWeb.html', {"data": datalist}) # 返回html模板和datalist
 

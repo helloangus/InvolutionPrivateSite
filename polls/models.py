@@ -1,6 +1,7 @@
 import datetime
 from django.db import models
 from django.utils import timezone
+from django.contrib import admin
 
 
 # 创建Question模型，负责描述问题和发布时间
@@ -12,6 +13,12 @@ class Question(models.Model):
         return self.question_text
 
     # 判断是否为最近一天上传的数据
+    # 这里增加display修饰器，用于在admin管理页中question的展示效果
+    @admin.display(
+        boolean = True,
+        ordering = 'pub_date',
+        description = 'Published recently?',
+    )
     def was_published_recently(self):
         now = timezone.now()
         return ((self.pub_date <= now) and (self.pub_date >= timezone.now()-datetime.timedelta(days=1)))
