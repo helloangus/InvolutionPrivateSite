@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.template.loader import get_template
-from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.db.models import F
 from django.utils import timezone

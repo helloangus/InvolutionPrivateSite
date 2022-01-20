@@ -1,12 +1,9 @@
 import os
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, FileResponse
 from django.template.loader import get_template
-
-
-# 新增返回一个html页面的函数
-def hello(request):
-    return render(request, 'firstHtml/test.html')
+from .models import ExampleModel
+import markdown
 
 # 首页信息
 def homeproc(request):
@@ -49,3 +46,22 @@ def pictureDownload(request):
 #     response['Content-Type'] = 'application.octet-stream'   # 指定文件类型
 #     response['Content-Disposition'] = 'attachment;filename="You_have_been_deceived.mp4"' # 注意这里是下载时的文件名，不可为中文
 #     return response
+
+
+def markdown_detail(request):
+    md_detail = get_object_or_404(ExampleModel, pk=1)
+
+    # 调用markdown方法将markdown转化未html文本再传递给模板
+    md_detail.content = markdown.markdown(
+        md_detail.content,
+        extensions = [
+            'markdown.extensions.extra',    # 用于标题、表格等基本转换
+            'markdown.extensions.codehilite',   # 用于语法高亮
+            'markdown.extensions.toc',  # 用于生成目录
+        ]
+    )
+    template = get_template('firstHtml/test.html')
+    context = {'md_detail': md_detail}
+    response = HttpResponse(template.render(context, request))
+
+    return response
