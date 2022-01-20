@@ -13,10 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import imp
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.static import static
 from firstHtml import views as firstviews
+from django.conf import settings
 
 urlpatterns = [
     path('msggate/', include('msgapp.urls')),
@@ -26,3 +27,7 @@ urlpatterns = [
     path('', firstviews.homeproc),
     path('picture/', firstviews.pictureDownload),
 ]
+
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
