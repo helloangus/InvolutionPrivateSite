@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'firstHtml.apps.FirsthtmlConfig',
     'msgapp.apps.MsgappConfig',
+    'frontMdEditor.apps.FrontmdeditorConfig',
     'mdeditor',
 ]
 

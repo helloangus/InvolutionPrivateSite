@@ -1,0 +1,17 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+<h1>Hello, world. You're at the markdown pages index.</h1>
+<br>
+<br>
+
+{% if latest_md_list %}
+    <ul>
+    {% for exampleModel in latest_md_list %}
+    <li><a href="{% url 'frontMdEditor:detail' examlpleModel.id %}">{{ exampleModel.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No MD are available.</p>
+{% endif %}

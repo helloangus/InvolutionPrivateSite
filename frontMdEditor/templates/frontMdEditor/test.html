@@ -1,0 +1,7 @@
+
+<form action="{% url 'frontMdEditor:addPage' %}" method="post">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <p><input type="submit" value="add page"></p>
+</form>

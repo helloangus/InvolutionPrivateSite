@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', firstviews.homeproc),
     path('picture/', firstviews.pictureDownload),
+    path('frontMdEditor/', include('frontMdEditor.urls')),
 ]
 
 if settings.DEBUG:
