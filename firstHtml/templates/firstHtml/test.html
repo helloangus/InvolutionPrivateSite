@@ -6,73 +6,133 @@
     <title>卷友网站</title> 
 
     <style type="text/css">
-        .div-a {
-            background-color: #1387aa;
+        .headerclass {
+            background-color: #455054;
+            height: 60px;
+            display: block;
+        }
+
+        .homepageclass {
+            background-color: #D4CFC9;
+            height: 700px;
+            width: 1240px;
+            margin: 0 auto;
+        }
+
+        .logoclass {
+            background-color: #455054;
             height: 40px;
-            position: relative;
-        }
-
-        .div-b {
-            background-color: #FFFFFF;
             width: 120px;
-            float: right;
-            position: absolute;
-            top: 10%;
-            left: 70%;
-            background-color: white;
-
+            display: inline-block;
+            float: left;
+            padding-right: 800px;
+            text-align: center;
         }
 
-        .div-c {
-            background-color: #C0C0C0;
-            height: 360px;
-            width: 480px;
+        .mainclass {
+            background-color: #308695;
+            height: 600px;
+            width: 900px;
             float: left;
             text-align: center;
             line-height: 300px;
-            margin:10px;
+            display: block;
         }
 
-        .div-d {
-            background-color: #E0E0E0;
-            height: 360px;
-            width: 240px;
+        .mainleftclass {
+            background-color: #308695;
+            height: 600px;
+            width: 600px;
             float: left;
-            text-align: center;
-            line-height: 160px;
-            margin:10px;
+            display: inline-block;
         }
 
-        .div-e {
-            background-color: #D0D0D0;
-            height: 200px;
-            width: 240px;
+        .mainlefttopclass {
+            background-color: #308695;
+            height: 500px;
+            width: 600px;
+            float: left;
+        }
+
+        .mainleftbottomclass {
+            background-color: #D45769;
+            height: 100px;
+            width: 600px;
+            float: left;
+        }
+
+        .mainrightclass {
+            background-color: #E69D45;
+            height: 600px;
+            width: 300px;
+            display: inline-block;
+
+        }
+
+        .searchframeclass {
+            background-color: #D4CFC9;
+            height: 40px;
+            width: 200px;
+            display: inline-block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .skillsclass {
+            background-color: #D45769;
+            height: 300px;
+            width: 340px;
             float: left;
             text-align: center;
-            line-height: 100px;
+
+        }
+
+        .viceclass {
+            background-color: #D4CFC6;
+            height: 700px;
+            width: 340px;
+            float: left;
+            text-align: center;
+
+
         }
     </style>
 </head>
 
 <body>
-    <div id="header" class="div-a">
-        <h5 style="margin-bottom:0;">内卷可视化网站</h5>
-        <div id="search_frame" class="div-b">
+
+    <div id="header" class="headerclass">
+        <div id="logo" class="logoclass">
+            <h5>内卷可视化网站</h5>
+        </div>
+
+        <div id="searchframe" class="searchframeclass">
             搜索框</div>
     </div>
+    <div id="homepage" class="homepageclass">
+        <div id="main" class="mainclass">
+            <div class="mainleftclass">
+                <div class="mainlefttopclass">
+                    项目图片
+                </div>
+                <div class="mainleftbottomclass">
+                    <P>进入按纽</P>
+                </div>
+            </div>
+            <div class="mainrightclass">
+                文字说明
+            </div>
+        </div>
 
-
-
-    <div id="menu" class="div-c">
-        最近项目的图片展示</div>
-
-    <div id="content" class="div-d">
-        卷友排行榜<div id="content" class="div-e">
-            实用技巧</div>
+        <div id="vice" class="viceclass">
+            <div id="list" class="skillsclass">
+                排名</div>
+            <div id="skills" class="skillsclass">
+                实用技巧</div>
+        </div>
+    </div>
+    <div id="tail" class="headerclass">
     </div>
 </body>
-</html>
 
-<div>
-    {{ md_detail.content|safe }}
-</div>
+</html>
