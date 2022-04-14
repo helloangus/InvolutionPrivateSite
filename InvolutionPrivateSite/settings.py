@@ -43,13 +43,14 @@ INSTALLED_APPS = [
     'msgapp.apps.MsgappConfig',
     'frontMdEditor.apps.FrontmdeditorConfig',
     'mdeditor',
+    'mainSite.apps.MainsiteConfig',
 ]
 
 # 修改 frame 配置
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 # 添加媒体文件的路径配置
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/home/angus/Develop/InvolutionPrivateSite/mainSite/source/'
 
 MDEDITOR_CONFIGS = {
 'default':{
