@@ -59,7 +59,9 @@
         </div>
     </div>
     <div class="projectinf">
-        项目列表
+        {% for project in project_list %}
+        {{ project.project_name }}<br>
+        {% endfor %}
     </div>
     </div>
        

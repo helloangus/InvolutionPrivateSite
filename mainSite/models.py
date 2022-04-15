@@ -12,3 +12,4 @@ class Project(models.Model):
 
     pub_date = models.DateTimeField('date published')
 
+

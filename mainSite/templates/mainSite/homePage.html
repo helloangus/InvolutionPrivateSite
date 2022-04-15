@@ -156,28 +156,25 @@
         <div id="main" class="mainclass">
             <div class="mainleftclass">
                 <div class="mainlefttopclass">
-                    {% for project in latest_prj %}
-                    <img src="{{MEDIA_URL}}{{ project.project_img }}">
-                    {% endfor %}
+                    <img src="{{MEDIA_URL}}{{ latest_prj.project_img }}">
                 </div>
                 <div class="mainleftbottomclass">
                     <ul>
-                        {% for project in latest_prj %}
-                        <a href="{% url 'mainSite:prj_detail' project.id %}">{{ project.project_name }}</a>
-                        {% endfor %}
+                        <a href="{% url 'mainSite:prj_detail' latest_prj.id %}">{{ latest_prj.project_name }}</a>
                     </ul>
                 </div>
             </div>
             <div class="mainrightclass">
-                {% for project in latest_prj %}
-                {{ project.project_theme }}<br>
-                {% endfor %}
+                {{ latest_prj.project_theme }}<br>
             </div>
         </div>
 
         <div id="vice" class="viceclass">
             <div id="list" class="listclass">
-                排名</div>
+                用户排名</div>
+                {% for name in user_name %}
+                <a href="{% url 'mainSite:personal_detail' name %}">{{ name }}</a>
+                {% endfor %}
             <div id="skills" class="skillsclass">
                 实用技巧</div>
         </div>
