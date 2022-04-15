@@ -14,10 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.conf.urls.static import static
 from firstHtml import views as firstviews
 from django.conf import settings
+from django.views.static import serve
+from InvolutionPrivateSite.settings import MEDIA_ROOT
 
 urlpatterns = [
     path('', include('mainSite.urls')),
@@ -28,6 +30,8 @@ urlpatterns = [
     path('home/', firstviews.homeproc),
     path('picture/', firstviews.pictureDownload),
     path('frontMdEditor/', include('frontMdEditor.urls')),
+    re_path(r'^media/(?P<path>.*)', serve, {"document_root":MEDIA_ROOT}),
+
 ]
 
 if settings.DEBUG:

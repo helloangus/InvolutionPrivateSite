@@ -156,15 +156,22 @@
         <div id="main" class="mainclass">
             <div class="mainleftclass">
                 <div class="mainlefttopclass">
-                    项目图片
+                    {% for project in latest_prj %}
+                    <img src="{{MEDIA_URL}}{{ project.project_img }}">
+                    {% endfor %}
                 </div>
                 <div class="mainleftbottomclass">
-                    <P>进入按纽</P>
+                    <ul>
+                        {% for project in latest_prj %}
+                        <a href="{% url 'mainSite:prj_detail' project.id %}">{{ project.project_name }}</a>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
             <div class="mainrightclass">
-                文字说明
-                {{theme}}<br>
+                {% for project in latest_prj %}
+                {{ project.project_theme }}<br>
+                {% endfor %}
             </div>
         </div>
 

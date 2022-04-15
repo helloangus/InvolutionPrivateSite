@@ -49,8 +49,8 @@ INSTALLED_APPS = [
 # 修改 frame 配置
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 # 添加媒体文件的路径配置
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-MEDIA_URL = '/home/angus/Develop/InvolutionPrivateSite/mainSite/source/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MDEDITOR_CONFIGS = {
 'default':{
@@ -107,6 +107,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
