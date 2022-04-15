@@ -5,7 +5,7 @@ from django.utils import timezone
 from InvolutionPrivateSite.settings import MEDIA_ROOT
 from django.contrib.auth.models import User
 
-from .models import Project
+from .models import Project, UserInfo
 
 
 # 用户发布prj数量排名
@@ -64,12 +64,14 @@ def prj_detail(request, project_id):
 def personal_detail(request, name):
     # 在User中寻找对应名字，未找到则给出404错误
     user = get_object_or_404(User, username=name)
+    userInfo = UserInfo.objects.get(user=user)
     project_list = Project.objects.filter(pub_date__lte=timezone.now(), user=user).order_by('-pub_date')[:10]
 
     # 获取personalPage.html模板，展示个人详情
     template = get_template('mainSite/personalPage.html')
     context = {
         'user': user,
+        'userInfo': userInfo,
         'project_list': project_list,
         }
     response = HttpResponse(template.render(context, request))

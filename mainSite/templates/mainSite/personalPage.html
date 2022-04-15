@@ -52,10 +52,10 @@
     <div class="homepage">
     <div class="personinf">
         <div class="personalpic">
-            <p>个人形象展示</p>
+            <p><img src="{{MEDIA_URL}}{{ userInfo.user_img }}"></p>
         </div>
         <div class="pesonalintroduce">
-            <p>个人文字介绍</p>
+            <p>{{ userInfo.user_intro }}</p>
         </div>
     </div>
     <div class="projectinf">

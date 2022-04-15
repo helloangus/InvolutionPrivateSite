@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project
+from .models import Project, UserInfo
 
 
 class ProjectAdmin(admin.ModelAdmin):
@@ -17,3 +17,11 @@ class ProjectAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Project, ProjectAdmin)
+
+
+class UserInfoAdmin(admin.ModelAdmin):
+    # 项目展示页的展示信息
+    list_display = ('user', 'user_intro')
+    search_fields = ['project_name']
+
+admin.site.register(UserInfo, UserInfoAdmin)
