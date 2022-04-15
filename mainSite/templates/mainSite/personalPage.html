@@ -59,8 +59,14 @@
         </div>
     </div>
     <div class="projectinf">
+        项目列表<br>
         {% for project in project_list %}
-        {{ project.project_name }}<br>
+        <a href="{% url 'mainSite:prj_detail' project.id %}">{{ project.project_name }}</a><br>
+        {% endfor %}
+
+        文章列表<br>
+        {% for article in article_list %}
+        <a href="{% url 'mainSite:article_detail' article.id %}">{{ article.article_name }}</a><br>
         {% endfor %}
     </div>
     </div>

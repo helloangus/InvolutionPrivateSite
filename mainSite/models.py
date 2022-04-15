@@ -21,3 +21,13 @@ class UserInfo(models.Model):
     user_img = models.ImageField(upload_to = 'user_img')
     # 建立用户简介
     user_intro = models.CharField(max_length=200)
+
+class Article(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    article_name = models.CharField(max_length=50)
+    article_img = models.ImageField(upload_to = 'prj_img')
+
+    article_content = models.CharField(max_length=99999)
+
+    pub_date = models.DateTimeField('date published')

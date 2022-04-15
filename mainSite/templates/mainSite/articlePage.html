@@ -6,7 +6,7 @@
     <title>个人页面</title> 
 
     <style type="text/css">
-        .projectpic {
+        .articlepic {
             /*基本格式*/
             background-image: url("image/1.jpeg");
             background-size: 100% 100%;
@@ -25,7 +25,7 @@
 
         }
 
-        .projectinf {
+        .articleinf {
             width: 600px;
             height: 700px;
             display: inline-block;
@@ -43,7 +43,7 @@
             text-align:center;
         }
 
-        .projectinformation {
+        .articleinformation {
             background-color:#D45769;
             width: 600px;
             height: 350px;
@@ -70,17 +70,16 @@
 </head>
 
 <body style="background-color: #D4CFC9;">
-    <div class="projectpic">
+    <div class="articlepic">
     </div>
-    <div class="projectinf">
+    <div class="articleinf">
         <div class="authorpic">
             <p><img src="{{MEDIA_URL}}{{ userInfo.user_img }}"></p>
         </div>
-        <div class="projectinformation">
-            {{ project.project_name }}<br>
-            {{ project.pub_date }}<br>
-            {{ project.project_theme }}<br>
-            {{ project.project_content }}<br>
+        <div class="articleinformation">
+            {{ article.article_name }}<br>
+            {{ article.pub_date }}<br>
+            {{ article.article_content }}<br>
         </div>
         <div class="enterbutton">
             点击进入项目

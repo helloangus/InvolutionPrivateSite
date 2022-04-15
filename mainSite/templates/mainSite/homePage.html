@@ -161,7 +161,7 @@
                 </div>
                 <div class="mainleftbottomclass">
                     <ul>
-                        <a href="{% url 'mainSite:prj_detail' latest_prj.id %}">{{ latest_prj.project_name }}</a>
+                        <a href="{% url 'mainSite:prj_detail' latest_prj.id %}">{{ latest_prj.project_name }}</a><br>
                     </ul>
                 </div>
             </div>
@@ -174,10 +174,13 @@
             <div id="list" class="listclass">
                 用户排名</div>
                 {% for name in user_name %}
-                <a href="{% url 'mainSite:personal_detail' name %}">{{ name }}</a>
+                <a href="{% url 'mainSite:personal_detail' name %}">{{ name }}</a><br>
                 {% endfor %}
             <div id="skills" class="skillsclass">
                 实用技巧</div>
+                {% for article in article_list %}
+                <a href="{% url 'mainSite:article_detail' article.id %}">{{ article.article_name }}</a><br>
+                {% endfor %}
         </div>
     </div>
     <div id="tail" class="headerclass">
